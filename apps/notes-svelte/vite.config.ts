@@ -8,7 +8,7 @@ export default defineConfig(() => ({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/notes-svelte',
   server: {
-    port: 4200,
+    port: 5173,
     host: 'localhost',
   },
   preview: {
