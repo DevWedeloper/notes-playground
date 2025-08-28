@@ -60,7 +60,8 @@
     "vitest": "^3.0.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "dependencies": {
     "@angular-devkit/build-angular": "~20.1.0",
