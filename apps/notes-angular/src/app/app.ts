@@ -5,9 +5,12 @@ import { NxWelcome } from './nx-welcome';
 @Component({
   imports: [NxWelcome, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  template: `
+    <app-nx-welcome></app-nx-welcome>
+    <router-outlet></router-outlet>
+  `,
+  styles: ``,
 })
 export class App {
-  protected title = 'notes-angular';
+  protected title = 'my-app';
 }

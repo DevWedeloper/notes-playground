@@ -509,7 +509,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <div id="welcome">
           <h1>
             <span>Hello there,</span>
-            Welcome notes-angular 👋
+            Welcome my-app 👋
           </h1>
         </div>
         <!--  HERO  -->
@@ -877,7 +877,7 @@ nx run-many -t build test lint</pre>
               </svg>
               View project details
             </summary>
-            <pre>nx show project notes-angular</pre>
+            <pre>nx show project my-app</pre>
           </details>
 
           <details>
