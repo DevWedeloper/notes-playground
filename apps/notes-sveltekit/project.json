@@ -1,0 +1,26 @@
+{
+  "name": "notes-sveltekit",
+  "root": "apps/notes-sveltekit",
+  "sourceRoot": "apps/notes-sveltekit/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run dev --workspace notes-sveltekit"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run build --workspace notes-sveltekit"
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run preview --workspace notes-sveltekit"
+      }
+    }
+  }
+}

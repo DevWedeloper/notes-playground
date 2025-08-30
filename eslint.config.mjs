@@ -1,9 +1,20 @@
 import nx from '@nx/eslint-plugin';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier';
 
 export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+  eslintConfigPrettier,
+  {
+    plugins: {
+      prettier,
+    },
+    rules: {
+      'prettier/prettier': 'error',
+    },
+  },
   {
     ignores: [
       '**/dist',
