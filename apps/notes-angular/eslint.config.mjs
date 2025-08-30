@@ -29,6 +29,8 @@ export default [
   {
     files: ['**/*.html'],
     // Override or add rules here
+    parser: '@angular-eslint/template-parser',
+    extends: ['plugin:@angular-eslint/template/recommended'],
     rules: {},
   },
 ];
