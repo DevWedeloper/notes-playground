@@ -1,3 +1,4 @@
+import baseConfig from "../../eslint.base.config.mjs";
 import { fixupConfigRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
