@@ -1,8 +1,9 @@
+import { workspaceRoot } from '@nx/devkit';
 import { config } from 'dotenv';
 import * as path from 'path';
 import z from 'zod';
 
-config({ path: path.resolve(__dirname, '../../.env') });
+config({ path: path.resolve(workspaceRoot, '.env') });
 
 const envSchema = z
   .object({
