@@ -25,4 +25,10 @@ export const insertTasksSchema = createInsertSchema(tasks, {
   updatedAt: true,
 });
 
-export const patchTasksSchema = createUpdateSchema(tasks);
+export const patchTasksSchema = createUpdateSchema(tasks, {
+  name: (field) => field.min(1).max(200),
+}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
