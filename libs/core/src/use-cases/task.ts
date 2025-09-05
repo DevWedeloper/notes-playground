@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
-import db from '../index';
-import { insertTasksSchema, patchTasksSchema, tasks } from '../schema';
+import db from '../db/index';
+import { insertTasksSchema, patchTasksSchema, tasks } from '../db/schema';
 
 export const create = async (data: z.infer<typeof insertTasksSchema>) =>
   db.insert(tasks).values(data).returning().get();
