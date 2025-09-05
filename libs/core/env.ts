@@ -1,0 +1,33 @@
+import { config } from 'dotenv';
+import path from 'path';
+import z from 'zod';
+
+config({ path: path.resolve(__dirname, '../../.env') });
+
+const envSchema = z
+  .object({
+    NODE_ENV: z.string().default('development'),
+    DATABASE_URL: z.string().url(),
+    DATABASE_AUTH_TOKEN: z.string().optional(),
+  })
+  .superRefine((input, ctx) => {
+    if (input.NODE_ENV === 'production' && !input.DATABASE_AUTH_TOKEN) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.invalid_type,
+        expected: 'string',
+        received: 'undefined',
+        path: ['DATABASE_AUTH_TOKEN'],
+        message: "Must be set when NODE_ENV is 'production'",
+      });
+    }
+  });
+
+const { data: env, error } = envSchema.safeParse(process.env);
+
+if (error) {
+  console.error('❌ Invalid env:');
+  console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
+  process.exit(1);
+}
+
+export default env!;
