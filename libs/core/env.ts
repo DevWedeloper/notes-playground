@@ -30,4 +30,5 @@ if (error) {
   process.exit(1);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export default env!;
