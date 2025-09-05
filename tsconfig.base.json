@@ -18,7 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/core/*": ["libs/core/src/use-cases/*"]
+      "@/core/*": ["libs/core/src/*"]
     }
   },
   "exclude": [
