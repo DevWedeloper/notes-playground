@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import path from 'path';
+import * as path from 'path';
 import z from 'zod';
 
 config({ path: path.resolve(__dirname, '../../.env') });
