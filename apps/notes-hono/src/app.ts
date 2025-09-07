@@ -1,19 +1,7 @@
-import { OpenAPIHono } from '@hono/zod-openapi';
-import { requestId } from 'hono/request-id';
-import notFound from './middlewares/not-found';
-import onError from './middlewares/on-error';
-import logger from './middlewares/pino-logger';
-import { AppBindings } from './libs/types/app';
+import createApp from './libs/create-app';
 
-const app = new OpenAPIHono<AppBindings>();
-
-app.use(requestId());
-app.use(logger());
+const app = createApp();
 
 app.get('/', (c) => c.text('Hello Node.js!'));
-
-app.notFound(notFound);
-
-app.onError(onError);
 
 export default app;
