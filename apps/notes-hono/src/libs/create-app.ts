@@ -5,8 +5,14 @@ import onError from '../middlewares/on-error';
 import logger from '../middlewares/pino-logger';
 import { AppBindings } from './types/app';
 
+export function createRouter() {
+  return new OpenAPIHono<AppBindings>({
+    strict: false,
+  });
+}
+
 export default function createApp() {
-  const app = new OpenAPIHono<AppBindings>({ strict: false });
+  const app = createRouter();
 
   app.use(requestId()).use(logger());
 
