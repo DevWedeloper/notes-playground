@@ -9,10 +9,6 @@ app.use(logger());
 
 app.get('/', (c) => c.text('Hello Node.js!'));
 
-app.get('/error', () => {
-  throw new Error('This is a test error');
-});
-
 app.notFound(notFound);
 
 app.onError(onError);
