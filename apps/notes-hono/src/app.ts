@@ -3,7 +3,7 @@ import { requestId } from 'hono/request-id';
 import notFound from './middlewares/not-found';
 import onError from './middlewares/on-error';
 import logger from './middlewares/pino-logger';
-import { AppBindings } from './types/app';
+import { AppBindings } from './libs/types/app';
 
 const app = new OpenAPIHono<AppBindings>();
 
