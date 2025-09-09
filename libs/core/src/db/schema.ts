@@ -4,6 +4,7 @@ import {
   createSelectSchema,
   createUpdateSchema,
 } from 'drizzle-zod';
+import { toZodV4SchemaTyped } from '../utils/zod';
 
 export const tasks = sqliteTable('tasks', {
   id: integer({ mode: 'number' }).primaryKey({ autoIncrement: true }),
@@ -15,20 +16,20 @@ export const tasks = sqliteTable('tasks', {
     .$onUpdate(() => new Date()),
 });
 
-export const selectTasksSchema = createSelectSchema(tasks);
+export const selectTasksSchema = toZodV4SchemaTyped(createSelectSchema(tasks));
 
-export const insertTasksSchema = createInsertSchema(tasks, {
+export const insertTasksSchema = toZodV4SchemaTyped(createInsertSchema(tasks, {
   name: (field) => field.min(1).max(200),
 }).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
-});
+}));
 
-export const patchTasksSchema = createUpdateSchema(tasks, {
+export const patchTasksSchema = toZodV4SchemaTyped(createUpdateSchema(tasks, {
   name: (field) => field.min(1).max(200),
 }).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
-});
+}));
