@@ -9,7 +9,7 @@ const onError: ErrorHandler = (err, c) => {
     currentStatus !== HttpStatusCodes.OK
       ? (currentStatus as ContentfulStatusCode)
       : HttpStatusCodes.INTERNAL_SERVER_ERROR;
-  const env = c.env['NODE_ENV'] || process.env.NODE_ENV;
+  const env = c.env?.NODE_ENV || process.env?.NODE_ENV;
 
   return c.json(
     {
