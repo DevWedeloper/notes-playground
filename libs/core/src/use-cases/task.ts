@@ -11,7 +11,15 @@ export const list = async () => db.select().from(tasks).all();
 export const update = async (
   id: number,
   data: z.infer<typeof patchTasksSchema>,
-) => db.update(tasks).set(data).where(eq(tasks.id, id)).returning().get();
+) => {
+  const res = await db.update(tasks)
+    .set(data)
+    .where(eq(tasks.id, id))
+    .returning()
+    .get();
+
+  return res ? res : undefined;
+};
 
 export const remove = async (id: number) =>
   db.delete(tasks).where(eq(tasks.id, id)).returning().get();
