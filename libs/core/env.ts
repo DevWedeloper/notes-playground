@@ -3,8 +3,13 @@ import { config } from 'dotenv';
 import * as path from 'path';
 import z from 'zod';
 
-config({ path: path.resolve(workspaceRoot, '.env') });
-
+config({
+  path: path.resolve(
+    workspaceRoot,
+    process.env['NODE_ENV'] === "test" ? ".env.test" : ".env"
+  )
+});
+  
 const envSchema = z
   .object({
     NODE_ENV: z.string().default('development'),
