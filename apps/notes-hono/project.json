@@ -13,7 +13,7 @@
         "outputPath": "dist/apps/notes-hono",
         "format": ["cjs"],
         "bundle": false,
-        "main": "apps/notes-hono/src/main.ts",
+        "main": "apps/notes-hono/src/index.ts",
         "tsConfig": "apps/notes-hono/tsconfig.app.json",
         "assets": ["apps/notes-hono/src/assets"],
         "generatePackageJson": true,
