@@ -78,6 +78,13 @@
           "buildTarget": "notes-hono:build:production"
         }
       }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/apps/notes-hono"],
+      "options": {
+        "passWithNoTests": true
+      }
     }
   },
   "tags": []
