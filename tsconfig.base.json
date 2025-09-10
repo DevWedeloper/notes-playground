@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@/core/*": ["libs/core/src/*"]
-    }
+    },
+    "strict": true
   },
   "exclude": [
     "node_modules",
