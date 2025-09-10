@@ -83,7 +83,10 @@
       "executor": "@nx/vite:test",
       "outputs": ["{workspaceRoot}/coverage/apps/notes-hono"],
       "options": {
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "env": {
+          "LOG_LEVEL": "silent"
+        }
       }
     }
   },
