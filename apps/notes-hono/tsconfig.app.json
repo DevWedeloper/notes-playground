@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["node"]
+    "types": ["node"],
+    "lib": ["DOM.Iterable", "DOM.AsyncIterable"]
   },
   "include": ["src/**/*.ts"],
   "exclude": [
