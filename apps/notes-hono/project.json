@@ -10,7 +10,7 @@
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
-        "outputPath": "dist/apps/notes-hono",
+        "outputPath": "apps/notes-hono/dist",
         "format": ["cjs"],
         "bundle": false,
         "main": "apps/notes-hono/src/index.ts",
@@ -19,6 +19,7 @@
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
+  "outbase": "src",
           "outExtension": {
             ".js": ".js"
           }
