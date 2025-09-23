@@ -4,7 +4,8 @@
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
     "types": ["node"],
-    "lib": ["DOM.Iterable", "DOM.AsyncIterable"]
+    "lib": ["DOM.Iterable", "DOM.AsyncIterable"],
+    "declaration": true
   },
   "include": ["src/**/*.ts"],
   "exclude": [
