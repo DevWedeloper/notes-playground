@@ -19,7 +19,6 @@
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
-  "outbase": "src",
           "outExtension": {
             ".js": ".js"
           }
