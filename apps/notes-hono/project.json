@@ -5,15 +5,25 @@
   "projectType": "application",
   "targets": {
     "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run notes-hono:build-base",
+          "nx run notes-hono:tsc-alias"
+        ],
+        "parallel": false
+      }
+    },
+    "build-base": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
         "outputPath": "apps/notes-hono/dist",
-        "format": ["cjs"],
+        "format": ["esm"],
         "bundle": false,
-        "main": "apps/notes-hono/src/index.ts",
+        "main": "apps/notes-hono/src/main.ts",
         "tsConfig": "apps/notes-hono/tsconfig.app.json",
         "assets": ["apps/notes-hono/src/assets"],
         "generatePackageJson": true,
@@ -25,7 +35,9 @@
         }
       },
       "configurations": {
-        "development": {},
+        "development": { 
+          "main": "apps/node-app/src/main.ts"
+        },
         "production": {
           "esbuildOptions": {
             "sourcemap": false,
@@ -34,6 +46,14 @@
             }
           }
         }
+      }
+    },
+    "tsc-alias": {
+      "executor": "nx:run-commands",
+      "inputs": ["{workspaceRoot}/dist/apps/notes-hono"],
+      "outputs": ["{workspaceRoot}/dist/apps/notes-hono"],
+      "options": {
+        "command": "tsc-alias -p apps/notes-hono/tsconfig.app.json"
       }
     },
     "prune-lockfile": {
