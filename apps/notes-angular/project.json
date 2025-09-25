@@ -10,7 +10,7 @@
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/notes-angular",
+        "outputPath": "apps/notes-angular/dist",
         "browser": "apps/notes-angular/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/notes-angular/tsconfig.app.json",
