@@ -76,17 +76,17 @@
       "continuous": true,
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": ["base-build"],
       "options": {
-        "buildTarget": "notes-hono:build",
+        "buildTarget": "notes-hono:base-build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "notes-hono:build:development"
+          "buildTarget": "notes-hono:base-build:development"
         },
         "production": {
-          "buildTarget": "notes-hono:build:production"
+          "buildTarget": "notes-hono:base-build:production"
         }
       }
     },
