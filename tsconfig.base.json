@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/core/*": ["libs/core/src/*"]
+      "@/core/*": ["libs/core/src/*"],
+      "@/hono": ["libs/hono/src/index.ts"]
     },
     "strict": true
   },
