@@ -14,6 +14,8 @@ const defaultHook: Hook<any, any, any, any> = (result, c) => {
       HttpStatusCodes.UNPROCESSABLE_ENTITY,
     );
   }
+  
+  return undefined;
 };
 
 export default defaultHook;
