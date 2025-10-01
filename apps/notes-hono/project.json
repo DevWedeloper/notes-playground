@@ -4,17 +4,7 @@
   "sourceRoot": "apps/notes-hono/src",
   "projectType": "application",
   "targets": {
-    "build": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "nx run notes-hono:build-base",
-          "nx run notes-hono:tsc-alias"
-        ],
-        "parallel": false
-      }
-    },
-    "build-base": {
+    "base-build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
@@ -36,7 +26,7 @@
       },
       "configurations": {
         "development": { 
-          "main": "apps/node-app/src/main.ts"
+          "main": "apps/notes-hono/src/main.ts"
         },
         "production": {
           "esbuildOptions": {
@@ -48,8 +38,9 @@
         }
       }
     },
-    "tsc-alias": {
+    "build": {
       "executor": "nx:run-commands",
+      "dependsOn": ["base-build"],
       "inputs": ["{workspaceRoot}/dist/apps/notes-hono"],
       "outputs": ["{workspaceRoot}/dist/apps/notes-hono"],
       "options": {
