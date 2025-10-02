@@ -6,7 +6,7 @@ import z from 'zod';
 config({
   path: path.resolve(
     workspaceRoot,
-    process.env['NODE_ENV'] === "test" ? ".env.test" : ".env"
+    process.env.NODE_ENV === "test" ? ".env.test" : ".env"
   )
 });
 
