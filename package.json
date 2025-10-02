@@ -4,10 +4,6 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "libs/*"
-  ],
   "dependencies": {
     "@hono/node-server": "^1.19.1",
     "@hono/zod-openapi": "^1.1.0",
