@@ -1,9 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
-    "declaration": true,
-    "types": ["node"]
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "lib": ["DOM.Iterable", "DOM.AsyncIterable"]
   },
   "include": ["src/**/*.ts"],
   "exclude": [
