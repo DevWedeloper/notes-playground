@@ -4,7 +4,7 @@
   "sourceRoot": "apps/notes-hono/src",
   "projectType": "application",
   "targets": {
-    "base-build": {
+    "build-base": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
@@ -40,7 +40,7 @@
     },
     "build": {
       "executor": "nx:run-commands",
-      "dependsOn": ["base-build"],
+      "dependsOn": ["build-base"],
       "inputs": ["{workspaceRoot}/dist/apps/notes-hono"],
       "outputs": ["{workspaceRoot}/dist/apps/notes-hono"],
       "options": {
@@ -76,17 +76,17 @@
       "continuous": true,
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["base-build"],
+      "dependsOn": ["build-base"],
       "options": {
-        "buildTarget": "notes-hono:base-build",
+        "buildTarget": "notes-hono:build-base",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "notes-hono:base-build:development"
+          "buildTarget": "notes-hono:build-base:development"
         },
         "production": {
-          "buildTarget": "notes-hono:base-build:production"
+          "buildTarget": "notes-hono:build-base:production"
         }
       }
     },
